@@ -1,0 +1,1 @@
+g++ Source/main.cpp -o Lab42.exe
