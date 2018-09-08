@@ -1,0 +1,1 @@
+git remote add GabovES https://github.com/GabovYegor/AiSD
