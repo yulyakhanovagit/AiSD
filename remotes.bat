@@ -4,3 +4,4 @@ git remote add GlazunovSA https://github.com/light5551/AiSD
 git remote add ProtsvetkinaAV https://github.com/ana24stasiya/AiSD
 git remote add IlyasovAV https://github.com/IlyasovAnton/AiSD
 git remote add GosudarkinYS https://github.com/DarkFlink/AiSD
+git remote add VologdinMD https://github.com/Makkksx/AiSD

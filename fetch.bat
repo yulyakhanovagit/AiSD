@@ -4,3 +4,4 @@ git fetch GlazunovSA
 git fetch ProtsvetkinaAV
 git fetch IlyasovAV
 git fetch GosudarkinYS
+git fetch VologdinMD  
