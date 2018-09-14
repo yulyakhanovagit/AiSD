@@ -3,25 +3,18 @@
 
 #define intermediate_result
 
-int func(int argument_of_function){
-  static int deep_of_recursion = 0;	
+inline int func(int argument_of_function , int deep_of_recursion){
   #ifdef intermediate_result // вывод промежуточных результатов
   for(int i = 0 ; i <= deep_of_recursion; i++)  //генерация нужного числа отступов для вывода на экран
     std::cout << "    ";                        //
   std::cout << "function for " << argument_of_function << std::endl;
   #endif 
 
-  if(argument_of_function == 1){  //
-    if(deep_of_recursion - 1)	  //  если аргумент функции единица => 
-      deep_of_recursion--;	  //  глубина рекурсии уменьшается
-    return 1;                     //  если не единица => увеличивается
-  }                               //
-  deep_of_recursion++;            // 
   if(!argument_of_function)                     
     return 0;
   int result = 0;
   for(int i = 2; i <= argument_of_function; i++){
-    result+= func(argument_of_function/i);         //рекурсия 
+    result+= func(argument_of_function/i , deep_of_recursion+1);         //рекурсия 
   } 
   return result; 
 }
@@ -47,9 +40,9 @@ int main(){
     return 0;
   }
   std::cout.rdbuf(file.rdbuf());  //перенаправляем вывод в файл
-  std::cout << func(argument_of_function) << " - TOTAL RESULT"<< std::endl; 
+  std::cout << func(argument_of_function , 0) << " - TOTAL RESULT"<< std::endl; 
   std::cout.rdbuf(mem_cout); // перенаправляем вывод обратно в консоль
-  std::cout << func(argument_of_function) << " - TOTAL RESULT"<< std::endl;
+  std::cout << func(argument_of_function , 0) << " - TOTAL RESULT"<< std::endl;
   std::cout << "результат программы сохранен в файле save_result.txt" << std::endl << std::endl << std::endl;
   return 0;
 }
