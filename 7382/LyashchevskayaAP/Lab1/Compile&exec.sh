@@ -1,26 +1,26 @@
 #!/bin/bash
-gcc ./Source/Lab1.c -o Lab1
+gcc ./Sourse/lab1.c -o Lab1
 echo 'Test 1:'
-cat ./Tests/test1.txt
+cat ./Tests/Test1.txt
 echo -e '\n'
-./Lab1 < ./Tests/test1.txt
+./Lab1 < ./Tests/Test1.txt
 echo -e ''
 echo 'Test 2:'
-cat ./Tests/test2.txt
+cat ./Tests/Test2.txt
 echo -e '\n'
-./Lab1 < ./Tests/test2.txt
+./Lab1 < ./Tests/Test2.txt
 echo -e ''
 echo 'Test 3:'
-cat ./Tests/test3.txt
+cat ./Tests/Test3.txt
 echo -e '\n'
-./Lab1 < ./Tests/test3.txt
+./Lab1 < ./Tests/Test3.txt
 echo -e ''
 echo 'Test 4:'
-cat ./Tests/test4.txt
+cat ./Tests/Test4.txt
 echo -e '\n'
-./Lab1 < ./Tests/test4.txt
+./Lab1 < ./Tests/Test4.txt
 echo -e ''
 echo 'Test 5:'
-cat ./Tests/test5.txt
+cat ./Tests/Test5.txt
 echo -e '\n'
-./Lab1 < ./Tests/test5.txt
+./Lab1 < ./Tests/Test5.txt
