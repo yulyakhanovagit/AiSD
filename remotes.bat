@@ -5,3 +5,5 @@ git remote add ProtsvetkinaAV https://github.com/ana24stasiya/AiSD
 git remote add IlyasovAV https://github.com/IlyasovAnton/AiSD
 git remote add GosudarkinYS https://github.com/DarkFlink/AiSD
 git remote add VologdinMD https://github.com/Makkksx/AiSD
+git remote add MinullinM https://github.com/Fikafusik/AiSD
+git remote add LyashchevskayaAP https://github.com/Anastasiyalp/AiSD
