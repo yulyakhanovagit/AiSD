@@ -35,7 +35,7 @@ int main(){
 	int *vector = (int *)malloc(length * sizeof(int));		//The memory allocation of the initial vector
 	int *vectorNew = (int *)malloc(length * sizeof(int));		//and changed vector
 
-	printf("Enter your vector, like example: <1 2 3 4 5>\n");
+	printf("Enter your vector, like example: <1 2 3 4 5>. Without brackets! Only digits!\n");
 	for(int i = 0; i < length; i++)					//Reading a vector
 		scanf("%d", &vector[i]);
 
