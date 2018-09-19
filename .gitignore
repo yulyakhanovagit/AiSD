@@ -6,10 +6,6 @@
 # Compiled Dynamic libraries
 *.dll
 
-# Executables
-*.exe
-*.out
-
 # Paths
 Build/
 .vscode
