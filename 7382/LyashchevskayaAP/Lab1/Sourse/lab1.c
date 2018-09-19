@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 int rec(int indent, int length, int *vector, int *vectorNew){
 	for(int i = 0; i < indent; i++)	printf("\t");			//Print the desired number of indents
@@ -22,9 +23,14 @@ int rec(int indent, int length, int *vector, int *vectorNew){
 }
 
 int main(){
-	int length;
+	char c;
 	printf("Enter length your vector:\n");
-	scanf("%d", &length);
+	scanf("%c", &c);
+	if(!isdigit(c)){						//Incorrect length value
+		printf("Error, please, enter DIGIT!\n");
+		return 0;
+	}
+	int length = c - '0';
 
 	int *vector = (int *)malloc(length * sizeof(int));		//The memory allocation of the initial vector
 	int *vectorNew = (int *)malloc(length * sizeof(int));		//and changed vector
