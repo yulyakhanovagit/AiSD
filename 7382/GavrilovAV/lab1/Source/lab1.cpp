@@ -22,7 +22,7 @@ bool check_str(string str){									//This function finds symbol '/' and returns
 
 string fun(string str, unsigned int d){									//Recuration function wich divide the string if it contains '/'
 #ifdef TEST												//then write the result of recuration call of itself to the variable - result
-        cout << "Recurtion depth = " << d << endl << "Input data for function: \""<<str<< "\"\n";	//multiplying it with the substring which does't contains '/'
+        cout << "Recurtion depth = " << d << endl << "Input data for function: \""<<str<< "\"\n";	//appending it with the substring which does't contains '/'
 #endif													//and returns the result
 	if(check_str(str)){										//if the input string does't contains '/' function returns this string
 		size_t pos=str.find('/');
