@@ -1,0 +1,2 @@
+g++ ./Sourse/main.cpp && ./a.out
+
