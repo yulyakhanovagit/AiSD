@@ -1,38 +1,37 @@
 #include <iostream>
 //#define TEST
-using namespace std;
 
-bool check_str(string str){									//This function finds symbol '/' and returns true if it is in the line
+bool check_str(std::string str){									//This function finds symbol '/' and returns true if it is in the line
         #ifdef TEST										//otherwise returns false
-                cout << "Checking for the occurrence of a symbol:'/'." << endl;
+                std::cout << "Checking for the occurrence of a symbol:'/'." << std::endl;
         #endif
-        if(str.find('/')==string::npos){
+        if(str.find('/')==std::string::npos){
 		#ifdef TEST
-                        cout << "Checking failed!"<<endl;
+                        std::cout << "Checking failed!"<<std::endl;
                 #endif
 		return false;
 	}
         else{
                 #ifdef TEST
-                        cout << "Checking passed!"<<endl;
+                        std::cout << "Checking passed!"<<std::endl;
 		#endif
 		return true;
 	}
 }
 
-string fun(string str, unsigned int d){									//Recuration function wich divide the string if it contains '/'
+std::string fun(std::string str, unsigned int d){									//Recuration function wich divide the string if it contains '/'
 #ifdef TEST												//then write the result of recuration call of itself to the variable - result
-        cout << "Recurtion depth = " << d << endl << "Input data for function: \""<<str<< "\"\n";	//appending it with the substring which does't contains '/'
+	std::cout << "Recurtion depth = " << d << std::endl << "Input data for function: \""<<str<< "\"\n";	//appending it with the substring which does't contains '/'
 #endif													//and returns the result
 	if(check_str(str)){										//if the input string does't contains '/' function returns this string
 		size_t pos=str.find('/');
-        	string substr=str.substr(0,pos);
+        	std::string substr=str.substr(0,pos);
 #ifdef TEST
-        	cout << "Substring without symbol '/': \""
+        	std::cout << "Substring without symbol '/': \""
                 << substr<< "\" , Second substring: \""
-                << str.substr(pos+1)<< "\"\n"<< endl;
+                <<str.substr(pos+1)<< "\"\n"<< std::endl;
 #endif
-        	string result=fun(str.substr(pos+1, str.length()-1), d+1)+substr;
+        	std::string result=fun(str.substr(pos+1, str.length()-1), d+1)+substr;
         	return result;
 	}
 	else{
@@ -41,10 +40,10 @@ string fun(string str, unsigned int d){									//Recuration function wich divid
 }
 
 int main(){											//Main function wich reads the line from the terminal,
-        string str;										//runs the recuration function fun
-        getline(cin, str);									//and writes the result in the terminal
+        std::string str;										//runs the recuration function fun
+        std::getline(std::cin, str);									//and writes the result in the terminal
         str=fun(str,0);
-        cout << "Programm result: \""<< str<< "\"" << endl;
+        std::cout << "Programm result: \""<< str<< "\"" << std::endl;
         return 0;
 }
 
