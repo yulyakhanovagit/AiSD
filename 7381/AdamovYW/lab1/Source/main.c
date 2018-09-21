@@ -19,27 +19,27 @@ void error_message(int numb_of_error){
 
 
 // поиск значения биноманального коэфициента рекурсивным способом
-int binominal_coef(int m , int n, int level){
-    int i;
-    for(i = 0; i < level; i++) // создание отступов
+int binominal_coef(int coef_m , int coef_n, int level){
+    for(int i = 0; i < level; i++) // создание отступов
         printf("    ");
-    printf("call: m = %d, n = %d ; ", m, n);
-    if (m == 0 || m == n){
-        printf("return 1\n");
+    printf("call: m = %d, n = %d ; ", coef_m, coef_n); // сообщение о вызове функции
+    if (coef_m == 0 || coef_m == coef_n){
+        printf("return 1\n"); // самый глубокий уровень, возврат единицы
         return 1;
-    } else if (m > n){
-        printf("return 0\n");
+    } else if (coef_m > coef_n){
+        printf("return 0\n"); // случай, возможный только при вводе некорректных данных
         return 1;
     } else {
-        printf("return C(%d,%d) + C(%d,%d)\n", m-1, n-1, m, n-1);
-        return binominal_coef(m-1, n-1, level+1) + binominal_coef(m, n-1, level+1);
+        // вызов рекурсии в случае, если m < n
+        printf("return C(%d,%d) + C(%d,%d)\n", coef_m-1, coef_n-1, coef_m, coef_n-1);
+        return binominal_coef(coef_m-1, coef_n-1, level+1) + binominal_coef(coef_m, coef_n-1, level+1);
     }
 }
 
 
 int main(void){
     
-    int m, n, result;
+    int coef_m, coef_n, result;
     
     
     // описание программы
@@ -53,20 +53,20 @@ int main(void){
     
     // ввод данных
     printf("Введите значение m : ");
-    if (scanf("%d", &m) == 0){
+    if (scanf("%d", &coef_m) == 0){ // ввод и проверка на корректность коэфициента m
         error_message(3);
         return 0;
     }
     printf("Введите значение n : ");
-    if (scanf("%d", &n) == 0){
+    if (scanf("%d", &coef_n) == 0){ // ввод и проверка на корректность коэфициента n
         error_message(3);
         return 0;
     }
-    if (m < 0 || n < 0){
+    if (coef_m < 0 || coef_n < 0){ // проверка на отсутствие отрицательных значений
         error_message(1);
         return 0;
     }
-    if (m > n){
+    if (coef_m > coef_n){ // проверка: m не должен превосходить n
         error_message(2);
         return 0;
     }
@@ -74,10 +74,11 @@ int main(void){
     
     // вывод результата
     printf("\nХод работы алгоритма:\n\n");
-    result = binominal_coef(m, n, 1);
-    printf("\n  %d   \n", m);
+    result = binominal_coef(coef_m, coef_n, 1); // вызов функции, получение результата
+    // вывод результата
+    printf("\n  %d   \n", coef_m);
     printf("C   =  %d\n", result);
-    printf("  %d   \n", n);
+    printf("  %d   \n", coef_n);
     printf("\nПрограмма завершила работу.\n\n");
     
     return 0;

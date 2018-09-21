@@ -1,2 +1,2 @@
-echo "Creating a file: a.out"
-gcc Source/main.c
+echo "Creating a file: program"
+gcc Source/main.c -o program
