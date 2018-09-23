@@ -46,8 +46,11 @@ int is_Valid(char *buffer) {
 }
 
 int main(){
-    char *buffer=malloc(sizeof(char)*20);
-    scanf("%s", buffer);
-    printf(is_Valid(buffer) ? "This expression is correct!\n" : "This expression is incorrect!!\n");
+    char *buffer=malloc(sizeof(char)*50);
+    fgets(buffer, 50, stdin);
+    printf("%s\n", buffer);
+    if (buffer[strlen(buffer) - 1] == '\n')
+		buffer[strlen(buffer) - 1] = '\0';
+    printf(is_Valid(buffer) ? "This expression is correct!\n" : "This expression is incorrect!\n");
     free(buffer);
 }
