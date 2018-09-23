@@ -1,6 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
+#include <stdarg.h>
+
+void abort_(const char * s, ...)					//Insert in case of incorrect length string
+{
+        va_list args;
+        va_start(args, s);
+        vfprintf(stderr, s, args);
+        fprintf(stderr, "\n");
+        va_end(args);
+        abort();
+}
+
+int is_valid_string(char *string){					//Function check valid of string
+	for(int i = 0; i < strlen(string); i++)
+		if(!isdigit(string[i])){
+			printf("alpha!");
+			return 0;
+		}
+	return 1;
+}
 
 int rec(int indent, int length, int *vector, int *vectorNew){
 	for(int i = 0; i < indent; i++)	printf("\t");			//Print the desired number of indents
@@ -23,14 +45,14 @@ int rec(int indent, int length, int *vector, int *vectorNew){
 }
 
 int main(){
-	char c;
-	printf("Enter length your vector:\n");
-	scanf("%c", &c);
-	if(!isdigit(c)){						//Incorrect length value
-		printf("Error, please, enter DIGIT!\n");
-		return 0;
-	}
-	int length = c - '0';
+	char * str = (char *)malloc(50 * sizeof(char));
+	printf("Enter your vector length:\n");
+	scanf("%s", str);
+
+	if(!is_valid_string(str))
+		abort_("You enter incorrect value of string\n");
+
+	int length = atoi(str);
 
 	int *vector = (int *)malloc(length * sizeof(int));		//The memory allocation of the initial vector
 	int *vectorNew = (int *)malloc(length * sizeof(int));		//and changed vector
