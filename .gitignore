@@ -9,6 +9,7 @@
 # Paths
 Build/
 .vscode
+sonar-project.properties
 
 Lab1.rtf
 Lab2.rtf
