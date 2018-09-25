@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-//#define SHOW_RECURSION
+#define SHOW_RECURSION
 
 // Function to swap values at two pointers */
 void swap(char *x, char *y)
@@ -43,12 +43,15 @@ void permute(char *str, int left, int right, int *num, char **result)
     {
         strcpy(result[*num], str);
         (*num)++;
+	printf("%d: %s\n", *num, str);
     }
     else
     {
         for (int i = left; i <= right; i++)
         {
+	    printf("[%s] --> swap '%c' with '%c' --> ", str, str[left], str[i]);
             swap((str+left), (str+i)); //symbol with index i is fixed
+	    printf("[%s]\n", str);
             permute(str, left+1, right, num, result); //call function for substring
             swap((str+left), (str+i));
         }
