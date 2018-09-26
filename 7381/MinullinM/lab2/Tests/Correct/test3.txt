@@ -1,1 +1,1 @@
-(B(B(B(B(B(BAA)A)A)A)(B(B(B(BAA)A)A)A))(B(B(B(B(BAA)A)A)A)(B(B(B(BAA)A)A)A)))
+((10((3 4)(14 12)))(5 5))

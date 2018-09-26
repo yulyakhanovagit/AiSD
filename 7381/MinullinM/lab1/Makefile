@@ -1,7 +1,7 @@
 
-CODE 	= ./source/
-OBJ 	= main.o rocker.o
-EXE 	= binary_rocker
+CODE 	= ./Source/
+OBJ 	= main.o
+EXE 	= lexical_analyzer
 CXX		= g++
 CFLAGS 	= -Wall -Wextra -c
 
@@ -11,9 +11,6 @@ all: $(OBJ)
 main.o: $(CODE)main.cpp
 	$(CXX) $(CFLAGS) $(CODE)main.cpp
 
-rocker.o: $(CODE)rocker.hpp $(CODE)rocker.cpp 
-	$(CXX) $(CFLAGS) $(CODE)rocker.cpp
-
 clean:
-	rm $(OBJ) 
+	rm $(OBJ) $(EXE)
 	
