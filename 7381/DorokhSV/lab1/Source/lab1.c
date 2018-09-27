@@ -12,7 +12,7 @@ void is_depth(int iter){
 int is_Valid(char *buffer, int depth) {
     depth++;
     is_depth(depth);
-    printf("%d function call is_Valid\n", depth);
+    printf("%d function call is_Valid for \"%s\"\n", depth, buffer);
 
     if (strlen(buffer) == 1){
         is_depth(depth);
