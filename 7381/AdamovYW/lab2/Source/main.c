@@ -1,4 +1,4 @@
-﻿// Задание: проверить иерархический список на наличие в нем заданного элемента x.
+﻿// Задание: посчитать число всех гирек заданного бинарного коромысла.
 
 #include <stdio.h>
 #include <string.h>
@@ -48,7 +48,7 @@ void errorMassage(int error_number, char * str, int index){
         printf("Ожидалось значение от 1 до 9 или '('.\n");
         break;
         case 7:
-        printf("После символа №%d присутствуют лишние символы.'\n", index+1);
+        printf("После символа №%d присутствуют лишние символы.\n", index+1);
         break;
     }
 }
@@ -66,7 +66,7 @@ BinCor* initBinCorElement(){ // Инициализация элемента сп
 }
 
 
-// считывание и создание элемента списка
+// считывание и создание бинарного коромысла
 // функция возвращает 1, если возникла ошибка
 int readBinCorElement(char * str, int index_1, int index_2, BinCor ** element){
     *element = initBinCorElement();
@@ -102,7 +102,7 @@ int readBinCorElement(char * str, int index_1, int index_2, BinCor ** element){
         errorMassage(4, str, index_1 - 1);
         return 1;
     }
-    if (isdigit(str[index_1]) && str[index_1] != 0){ // случай, если груз
+    if (isdigit(str[index_1]) && str[index_1] != 0){ // случай, если гирька
         while(1){
             if (isdigit(str[index_1])){
                 (*element)->weight1 = (*element)->weight1 * 10 + str[index_1] - '0';
@@ -170,7 +170,7 @@ int readBinCorElement(char * str, int index_1, int index_2, BinCor ** element){
         errorMassage(4, str, index_1 - 1);
         return 1;
     }
-    if (isdigit(str[index_1]) && str[index_1] != '0'){ // случай, если груз
+    if (isdigit(str[index_1]) && str[index_1] != '0'){ // случай, если гирька
         while(1){
             if (isdigit(str[index_1])){
                 (*element)->weight2 = (*element)->weight2 * 10 + str[index_1] - '0';
@@ -215,7 +215,6 @@ int readBinCorElement(char * str, int index_1, int index_2, BinCor ** element){
         return 1;
     }
     
-    
     return 0;
 }
 
@@ -230,24 +229,20 @@ int createBinCor(char * str, BinCor ** binCor){
 }
 
 
-// Возвращаемое значение равно количеству вхождений
-// элемента target в коромысло binCor.
-int isTarget(int target, BinCor * binCor){
+// Возвращаемое значение равно количеству всех
+// гирек в заданном бинарном коромысле.
+unsigned int numbers(const BinCor binCor){
     int result = 0;
     
-    if (binCor->cor_1 == NULL){
-        if (binCor->weight1 == target)
-            result++;
-    }
+    if (binCor.cor_1 == NULL)
+        result++;
     else
-        result += isTarget(target, binCor->cor_1);
+        result += numbers(*(binCor.cor_1));
     
-    if (binCor->cor_2 == NULL){
-        if (binCor->weight2 == target)
-            result++;
-    }
+    if (binCor.cor_2 == NULL)
+        result++;
     else
-        result += isTarget(target, binCor->cor_2);
+        result += numbers(*(binCor.cor_2));
     
     return result;
 }
@@ -267,11 +262,11 @@ void free_memory(BinCor * binCor){
 int main(void)
 {
     char str[N]; // строка для ввода
-    int target; // элемент, который нужно проверить
     BinCor * binCor = NULL; // бинарное коромысло
     
     
     // начало считывания и обработки данных
+    printf("\nПрограмма выводит общее число гирек в указанном бинарном коромысле.\n");
     printf("\nБинарное коромысло записывается в виде:\n");
     printf("(ПЛЕЧО ПЛЕЧО)\n");
     printf("Плечо имеет следующий вид:\n");
@@ -280,6 +275,7 @@ int main(void)
     printf("\nВведите бинарное коромысло (не больше 500 символов): ");
     fgets(str, N, stdin);
     
+    // обработка данных и проверка на ошибки
     if (createBinCor(str, &binCor)){
         printf("Программа завершила работу.\n\n");
         free_memory(binCor);
@@ -288,21 +284,9 @@ int main(void)
     printf("\nВведены корректные данные.\n\n");
     // конец считывания и обработки данных
     
-    // проверка на наличие элемента target
-    printf("Введите элемент, который необходимо проверить: ");
-    if (scanf("%d", &target) == 0){
-        printf("Ошибка: необходимо ввести число.\n");
-        printf("Программа завершила свою работу.\n\n");
-        return 0;
-    }
-    
-    int a;
-    if (a = isTarget(target, binCor)){
-        printf("\nЭлемент '%d' встречается %d раз(а).\n\n", target, a);
-    } else {
-        printf("\nЭлемент '%d' отсутствует.\n\n", target);
-    }
-    
+    // вывод результата
+    printf("Общее количество гирек: %u.\n\n", numbers(*binCor));
+
     free_memory(binCor);
     
     return 0;
