@@ -231,18 +231,32 @@ int createBinCor(char * str, BinCor ** binCor){
 
 // Возвращаемое значение равно количеству всех
 // гирек в заданном бинарном коромысле.
-unsigned int numbers(const BinCor binCor){
+unsigned int numbers(const BinCor binCor, int deep_of_recursion){
     int result = 0;
     
-    if (binCor.cor_1 == NULL)
+    for (int i = 0; i < deep_of_recursion; i++)
+        printf("     ");
+    printf("левое  плечо: ");
+    if (binCor.cor_1 == NULL){
+        printf("гиря (+1).\n");
         result++;
-    else
-        result += numbers(*(binCor.cor_1));
+    }
+    else {
+        printf("коромысло:\n");
+        result += numbers(*(binCor.cor_1), deep_of_recursion+1);
+    }
     
-    if (binCor.cor_2 == NULL)
+    for (int i = 0; i < deep_of_recursion; i++)
+        printf("     ");
+    printf("правое плечо: ");
+    if (binCor.cor_2 == NULL){
+        printf("гиря (+1).\n");
         result++;
-    else
-        result += numbers(*(binCor.cor_2));
+    }
+    else{
+        printf("коромысло:\n");
+        result += numbers(*(binCor.cor_2), deep_of_recursion+1);
+    }
     
     return result;
 }
@@ -285,7 +299,8 @@ int main(void)
     // конец считывания и обработки данных
     
     // вывод результата
-    printf("Общее количество гирек: %u.\n\n", numbers(*binCor));
+    printf("Ход работы алгоритма:\n\n");
+    printf("\nОбщее количество гирек: %u.\n\n", numbers(*binCor, 1));
 
     free_memory(binCor);
     
