@@ -1,0 +1,56 @@
+echo "РЕЗУЛЬТАТ ВЫПОЛНЕНИЯ ТЕСТОВ" > result.txt
+ 
+echo "тест №1 : входные данные: (abc+)" >> result.txt
+echo "    a 7                         " >> result.txt
+echo "    b 6                         " >> result.txt
+echo "    c 5                         " >> result.txt
+  
+./run < Tests/test1.txt >> result.txt
+
+echo "тест №2 : входные данные: (a+)" >> result.txt
+echo "    a 3                     " >> result.txt
+./run < Tests/test2.txt >> result.txt
+
+echo "тест №3 : входные данные: ((ab+)(cd+)*)" >> result.txt
+echo "    a 17                    "  >> result.txt
+echo "    b 8                     "  >> result.txt
+echo "    c 9                     "  >> result.txt
+echo "    d 25                    "  >> result.txt
+./run < Tests/test3.txt >> result.txt
+
+echo "тест №4 : входные данные: ()" >> result.txt
+./run < Tests/test4.txt >> result.txt
+
+echo "тест №5 : входные данные: (b-)" >> result.txt
+echo "    b 13                     "  >> result.txt
+./run < Tests/test5.txt >> result.txt
+
+echo "тест №6 : входные данные: (abc+)"  >> result.txt
+echo "    a 4                     "  >> result.txt
+echo "    b 3                     "  >> result.txt
+echo "    d 4                     "  >> result.txt
+./run < Tests/test6.txt >> result.txt
+
+echo "тест №7 : входные данные: (ab/)"  >> result.txt
+echo "    a 4                     "  >> result.txt
+echo "    b 0                     "  >> result.txt
+./run < Tests/test7.txt >> result.txt
+
+echo "тест №8 : входные данные: (ab/)"  >> result.txt
+echo "    a 0                     "  >> result.txt
+echo "    b 6                     "  >> result.txt
+./run < Tests/test8.txt >> result.txt
+
+echo "тест №9 : входные данные: (ab*)"  >> result.txt
+echo "    a eeee                     "  >> result.txt
+echo "    b aaaa                     "  >> result.txt
+./run < Tests/test9.txt >> result.txt
+
+echo " тест №10 : входные данные: ((aaaaaa+)(bbb*)-)" >> result.txt
+echo "    a 4"  >> result.txt
+echo "    b 13"  >> result.txt
+./run < Tests/test10.txt >> result.txt
+
+echo "результат программы расположен в файле result.txt"
+
+
