@@ -24,32 +24,32 @@ void errorMassage(int error_number, char * str, int index){
     printf("\nОшибка! Вы ввели некорректные данные:\n");
     switch (error_number){
         case 1:
-        printf("Символ №%d - '%c'.\n", index+1, str[index]);
-        printf("Ожидался символ - '('.\n");
-        break;
+            printf("Символ №%d - '%c'.\n", index+1, str[index]);
+            printf("Ожидался символ - '('.\n");
+            break;
         case 2:
-        printf("Символ №%d - '%c'.\n", index+1, str[index]);
-        printf("Ожидался символ - ')'.\n");
-        break;
+            printf("Символ №%d - '%c'.\n", index+1, str[index]);
+            printf("Ожидался символ - ')'.\n");
+            break;
         case 3:
-        printf("Символ №%d - '%c'.\n", index+1, str[index]);
-        printf("Ожидалось значение от 1 до 9.\n");
-        break;
+            printf("Символ №%d - '%c'.\n", index+1, str[index]);
+            printf("Ожидалось значение от 1 до 9.\n");
+            break;
         case 4:
-        printf("Символ №%d - '%c'.\n", index+1, str[index]);
-        printf("Ожидался пробел.\n");
-        break;
+            printf("Символ №%d - '%c'.\n", index+1, str[index]);
+            printf("Ожидался пробел.\n");
+            break;
         case 5:
-        printf("Символ №%d - '%c'.\n", index+1, str[index]);
-        printf("Отсутствует закрывающая скобка.\n");
-        break;
+            printf("Символ №%d - '%c'.\n", index+1, str[index]);
+            printf("Отсутствует закрывающая скобка.\n");
+            break;
         case 6:
-        printf("Символ №%d - '%c'.\n", index+1, str[index]);
-        printf("Ожидалось значение от 1 до 9 или '('.\n");
-        break;
+            printf("Символ №%d - '%c'.\n", index+1, str[index]);
+            printf("Ожидалось значение от 1 до 9 или '('.\n");
+            break;
         case 7:
-        printf("После символа №%d присутствуют лишние символы.\n", index+1);
-        break;
+            printf("После символа №%d присутствуют лишние символы.\n", index+1);
+            break;
     }
 }
 
