@@ -1,0 +1,6 @@
+echo "Results of tests introduce in folder Tests_result" 
+
+mkdir Tests_result
+./run Tests/test1.txt Tests_result/result_tests1.txt
+./run Tests/test2.txt Tests_result/result_tests2.txt
+./run Tests/test3.txt Tests_result/result_tests3.txt
