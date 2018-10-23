@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Enter input filePath:"
+read input
+echo ________________________________________
+echo "[Initial file]:"
+echo " "
+cat $input
+echo ________________________________________
+echo "[Reworked file]:"
+g++ -std=c++11 Source/main.cpp && ./a.out <<< $input
+echo " "
+cat "output.txt"
+echo ________________________________________
+rm output.txt
+
+
